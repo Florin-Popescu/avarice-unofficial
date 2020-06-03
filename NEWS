@@ -1,0 +1,236 @@
+# $Id: NEWS 375 2018-10-15 21:47:01Z joerg_wunsch $
+
+Summary of changes since AVaRICE 2.13
+==================================
+
+. Replace the USB daemon by Posix threads (bug #15).
+
+. Implement JTAGICE3 handling
+
+. Implement Atmel-ICE handling, including JTAGICE3 with firmware
+  version 3.x, EDBG and mEDBG integrated debuggers
+
+. Implement the GDB 7+ flash write protocol (for the "load" command)
+
+. Implement a backend command for the GDB "monitor" command; by
+  now, this is mostly a stub, but "monitor help" and "monitor
+  version" are already around.
+
+. New devices: ATmega256RFR2, ATmega2564RFR2, ATmega128RFR2,
+  ATmega1284RFR2, ATmega64RFR2, ATmega644RFR2
+
+. Bugfix: support software breakpoints on ATmega48P, ATmega88P,
+  ATmega168P, ATmega328P, ATtiny24, ATtiny44, ATtiny84
+
+
+Summary of changes in AVaRICE 2.13
+==================================
+
+. Rearrange the entire error handling to use exceptions, rather than a
+  mix between error code returns, and prematurely exiting the program
+  from deep inside, without any attempt to cleanup the JTAG ICE
+  connection status.  This is a lot cleaner now, with a much reduced
+  chance to leave the ICE in an unworkable state when exiting the
+  program.
+
+. New devices: ATxmega128B1, ATxmega128B3, ATxmega64B1, ATxmega64B3,
+  ATmega16M1, ATmega64M1, ATmega64C1, ATxmega128A3, ATxmega32A4
+
+. Deprecate target programming (downloading) from the ELF file.  It
+  must be explicitly enabled now by the --enable-target-programming
+  configure option.  If not enabled, AVaRICE no longer depends on
+  libbfd and its prerequisites.  Use AVRDUDE for device programming.
+
+. Added IO register definitions (for GDB's "info io_registers"
+  command) for the following devices: ATmega323, ATmega64, AT90CAN128,
+  ATmega164p, ATmega324p, ATmega644, ATmega325, ATmega3250, ATmega645,
+  ATmega6450, ATmega329, ATmega3290, ATmega649, ATmega6490, ATmega640,
+  ATmega1280, ATmega1281, ATmega2560, ATmega2561, ATmega48, ATmega88,
+  ATmega168, ATtiny13, ATtiny2313, AT90PWM2, AT90PWM3, AT90PWM2B,
+  AT90PWM3B, ATmega32M1, ATmega32C1, ATtiny24, ATtiny44, ATtiny84,
+  ATtiny25, ATtiny45, ATtiny85, ATtiny261, ATtiny461, ATtiny861,
+  AT90CAN32, AT90CAN64, AT90PWM216, AT90PWM316, AT90USB1287,
+  AT90USB162, AT90USB646, AT90USB647, ATmega1284P, ATmega165,
+  ATmega165P, ATmega168P, ATmega16HVA, ATmega3250P, ATmega325P,
+  ATmega328P, ATmega3290P, ATmega329P, ATmega32HVB, ATmega32U4,
+  ATmega406, ATmega48P, ATmega644P, ATmega88P, ATtiny167, ATtiny43U,
+  ATtiny48, ATtiny88, ATmega128RFA1
+
+=====================================================================
+
+Summary of changes in AVaRICE 2.12
+==================================
+
+. Many Xmega fixes for firmware versions 7 and above (as shipping by
+  AVR Studio 5); code breakpoints and accessing the various Xmega
+  memories appear to almost work now.  Many thanks to Detlev Kraft for
+  his in-depth analysis of the AVR Studio 5 communiction with the ICE.
+
+. Cache the PC returned by BREAK events, to speedup the communication.
+
+. New devices: ATxmega256A3, ATxmega16D4, ATtiny4313
+
+. Moved source code repository from CVS to SVN.
+
+. Implement PDI debugging (JTAGICEmkII / Xmega).
+
+=====================================================================
+
+Summary of changes in AVaRICE 2.11
+==================================
+
+. Fixed an annoying error that prevented it from compiling on recent
+  versions of GCC.
+
+. Fixed *all* warnings, making the code -Wall -Wextra safe, so they
+  can be enabled by default now.  GCC 3.x users might want to run
+  configure with --disable-warnings though, as some of the warnings
+  are suppressed by GCC 4.x pragmas.
+
+=====================================================================
+
+Summary of changes in AVaRICE 2.10
+==================================
+
+Important bug fixes:
+--------------------
+
+. Add a check for the requirement to link against libz in order
+  to successfully work with libbfd.  That appears to be necessary
+  for GNU binutils >= 2.19.
+
+=====================================================================
+
+Summary of changes in AVaRICE 2.9
+=================================
+
+New CPU support added:
+----------------------
+
+. ATmega128RFA1
+
+=====================================================================
+Summary of changes in AVaRICE 2.8
+=================================
+
+New CPU support added:
+----------------------
+
+. ATtiny84 and ATtiny85 (debugWIRE devices)
+. ATmega32C1, ATmega32M1
+. AT90PWM316, AT90USB162, AT90USB646, AT90USB647, ATmega1284P,
+  ATmega165, ATmega165P, ATmega168P, ATmega16HVA, ATmega3250P,
+  ATmega325P, ATmega328P, ATmega3290P, ATmega329P, ATmega32HVB,
+  ATmega32U4, ATmega406, ATmega48P, ATmega644P, ATmega88P, ATtiny167,
+  ATtiny43U, ATtiny48, ATtiny88, ATXmega128A1
+
+New features added:
+-------------------
+
+. External reset through nSRST (option -R/--reset-srst)
+
+. Handle ICE events (intelligently) beyond just BREAK events
+
+. Option -k/--known-devices to print all known devices
+
+. Default bitrate decreased to 250 kHz to comply with most AVRs
+  shipping with a CPU frequency of 1 MHz
+
+
+Summary of important bug fixes:
+-------------------------------
+
+. Fix a bug with single-stepping on the JTAG ICE mkII or AVR Dragon.
+  The bug could eventually result in a "Cannot read program counter"
+  message.
+
+. Fix a sign-extension bug in the length calculation of received JTAG
+  ICE mkII packets that could result in a C++ allocation error.
+
+. [ 1869060 ] jtag daisy chain bits limitations
+
+. [ 1833342 ] useless warning message about jtag bitrate using dragon
+
+. [ 1831392 ] --jtag option does not default to usb using dragon
+
+. [ patch 1750202 ] set parameter command failed
+
+. [ 1865183 ] bfd.h not used for checking of libbfd
+
+. [ 1880464 ] AVR-Dragon needs libusb-dev
+
+. [ 1833340 ] cannot read program counter/Watchdog has expired
+
+
+=====================================================================
+Summary of changes in AVaRICE 2.7
+=================================
+
+New CPU support added:
+----------------------
+
+. AT90PWM2B/AT90PWM3B (same as AT90PWM2/3 but different signature)
+. ATmega325/3250/645/6450
+
+New features added:
+-------------------
+
+. Software breakpoints are now also supported when using JTAG.
+
+Summary of important bug fixes:
+-------------------------------
+
+. Complete overhaul of the USB communication, making it much more
+  robust, and less resource-consuming.
+
+. DebugWire bug fix submittted by Shaun Jackman.
+
+
+=====================================================================
+Summary of changes in AVaRICE 2.6
+=================================
+
+New CPU support added:
+----------------------
+
+. ATmega164P/324P (removed non-existing ATmega164/324)
+
+New features added:
+-------------------
+
+. Support of the AVR Dragon (both, JTAG and debugWire)
+
+Summary of important bug fixes:
+-------------------------------
+
+. Don't fork the USB daemon with the libusb handle open;
+  instead, re-open the connection in the child.  Fixes issues
+  with MacOS X and Cygwin.
+
+=====================================================================
+Summary of changes in AVaRICE 2.5
+=================================
+
+New CPU support added:
+----------------------
+
+. AT90USB1287
+. ATmega2560/2561
+. debugWIRE AVRs (ATmega48/88/168, ATtiny13, ATtiny2313, AT90PWM2/3,
+  ATtiny24/44, ATtiny25/45, ATtiny261/461/861)
+
+New features added:
+-------------------
+
+. JTAG daisy chainging
+. basic debugWIRE support (still limited to four breakpoints; known
+  to occasionally cause trouble over USB, works better over RS-232)
+
+Summary of important bug fixes:
+-------------------------------
+
+. fix ucAllowFullPageBitstream for ATmega640/1280/1281, AT90CAN128
+. fix device descriptors, in particular EEPROM access on recent AVRs
+
+=====================================================================
+[Versions up to AVaRICE 2.4 did not have a NEWS file entry.]
