@@ -42,6 +42,7 @@ extern gdb_io_reg_def_type atmega64_io_registers[];
 extern gdb_io_reg_def_type at90can128_io_registers[];
 extern gdb_io_reg_def_type atmega164p_io_registers[];
 extern gdb_io_reg_def_type atmega324p_io_registers[];
+extern gdb_io_reg_def_type atmega324pb_io_registers[];
 extern gdb_io_reg_def_type atmega644_io_registers[];
 extern gdb_io_reg_def_type atmega325_io_registers[];
 extern gdb_io_reg_def_type atmega3250_io_registers[];
