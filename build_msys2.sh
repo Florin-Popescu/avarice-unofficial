@@ -1,4 +1,4 @@
-INSTALL_DIR=/home/avarice
+INSTALL_DIR=/c/avr
 
 ./Bootstrap
 
