@@ -1,5 +1,8 @@
 INSTALL_DIR=/c/avr
 
+cp -r ./libhidapi/* /usr
+cp -r ./libusb/* /usr
+
 ./Bootstrap
 
 ./configure \
