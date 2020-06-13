@@ -790,7 +790,7 @@ jtag_device_def_type deviceDefinitions[] = {
 	0x9517,
 	128, 256,	// 32768 bytes flash
 	4, 256,	// 1024 bytes EEPROM
-	51 * 4,	// 31 interrupt vectors
+    0x60,        // First flash address which is not an interrupt vector
 	DEVFL_NONE,
 	atmega324pb_io_registers,
 	false,
