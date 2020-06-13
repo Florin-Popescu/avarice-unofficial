@@ -87,7 +87,7 @@ uchar jtag2::memorySpace(unsigned long &addr)
     }
 }
 
-unsigned int *jtag2::jtagRead(unsigned long addr, unsigned int numBytes)
+uchar *jtag2::jtagRead(unsigned long addr, unsigned int numBytes)
 {
     uchar *response;
     int responseSize;

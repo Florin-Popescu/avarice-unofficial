@@ -490,7 +490,7 @@ static unsigned int countFuses(unsigned int fusemap)
 
 void jtag::jtagReadFuses(void)
 {
-    unsigned int *fuseBits = 0;
+    uchar *fuseBits = 0;
 
     statusOut("\nReading Fuse Bytes:\n");
     fuseBits = jtagRead(FUSE_SPACE_ADDR_OFFSET + 0,
@@ -541,7 +541,7 @@ void jtag::jtagActivateOcdenFuse(void)
     delete [] fuseBits;
 }
 
-void jtag::jtagDisplayFuses(unsigned int *fuseBits)
+void jtag::jtagDisplayFuses(uchar *fuseBits)
 {
     if (deviceDef->fusemap <= 0x07)
     {

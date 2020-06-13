@@ -89,7 +89,7 @@ class jtag2: public jtag
     virtual void jtagSingleStep(void);
     virtual bool jtagContinue(void);
 
-    virtual unsigned int *jtagRead(unsigned long addr, unsigned int numBytes);
+    virtual uchar *jtagRead(unsigned long addr, unsigned int numBytes);
     virtual void jtagWrite(unsigned long addr, unsigned int numBytes, uchar buffer[]);
     virtual unsigned int statusAreaAddress(void) const {
         return (is_xmega? 0x3D: 0x5D) + DATA_SPACE_ADDR_OFFSET;
