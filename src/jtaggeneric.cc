@@ -541,7 +541,7 @@ void jtag::jtagActivateOcdenFuse(void)
     delete [] fuseBits;
 }
 
-void jtag::jtagDisplayFuses(uchar *fuseBits)
+void jtag::jtagDisplayFuses(unsigned int *fuseBits)
 {
     if (deviceDef->fusemap <= 0x07)
     {
