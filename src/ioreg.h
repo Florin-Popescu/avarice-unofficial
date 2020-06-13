@@ -99,6 +99,7 @@ extern gdb_io_reg_def_type atmega32hvb_io_registers[];
 extern gdb_io_reg_def_type atmega32u4_io_registers[];
 extern gdb_io_reg_def_type atmega406_io_registers[];
 extern gdb_io_reg_def_type atmega48p_io_registers[];
+extern gdb_io_reg_def_type atmega4808_io_registers[];
 extern gdb_io_reg_def_type atmega644p_io_registers[];
 extern gdb_io_reg_def_type atmega88p_io_registers[];
 extern gdb_io_reg_def_type attiny167_io_registers[];
