@@ -1,3 +1,5 @@
+#!/bin/bash
+
 INSTALL_DIR=/c/avr
 
 cp -r ./libhidapi/* /usr
