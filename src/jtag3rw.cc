@@ -112,6 +112,12 @@ uchar *jtag3::jtagRead(unsigned long addr, unsigned int numBytes)
 
     switch (whichSpace)
     {
+	case MTYPE_SIGN_JTAG:
+	// The signature needs to be read from its exact address,
+	// not just the signature space with address 0.
+		if (proto == PROTO_UPDI)
+			addr = 0x1100;
+	break;
 	// Pad to even byte count for flash memory.
 	// Even MTYPE_SPM appears to cause a RSP_FAILED
 	// otherwise.

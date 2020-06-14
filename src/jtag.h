@@ -190,6 +190,15 @@ typedef struct {
     unsigned char osccal_address;
 } jtag3_device_desc_type;
 
+/* UPDI device descriptor */
+struct updi_device_desc {
+    unsigned char prog_base[2];
+    unsigned char flash_page_size;
+    unsigned char eeprom_page_size;
+    unsigned char nvm_base_addr[2];
+    unsigned char ocd_base_addr[2];
+};
+
 #define fill_b4(u) \
 { ((u) & 0xffUL), (((u) & 0xff00UL) >> 8), \
   (((u) & 0xff0000UL) >> 16), (((u) & 0xff000000UL) >> 24) }
@@ -204,7 +213,7 @@ enum dev_flags {
 
 typedef struct {
     const char* name;
-    const unsigned int device_id;      // Part Number from JTAG Device 
+    const unsigned int device_id;      // Part Number from JTAG Device
                                        // Identification Register
     unsigned int flash_page_size;      // Flash memory page size in bytes
     unsigned int flash_page_count;     // Flash memory page count
@@ -233,6 +242,8 @@ typedef struct {
     xmega_device_desc_type dev_desc3;  // Device descriptor to download for
                                        // Xmega devices in new (7+) firmware
                                        // JTAGICE mkII and AVR Dragon
+	updi_device_desc dev_desc4;		   // Device descriptor to download to
+									   // UPDI device
 } jtag_device_def_type;
 
 extern jtag_device_def_type deviceDefinitions[];
@@ -752,7 +763,7 @@ typedef struct {
 #define JTAG_EOM 0x20, 0x20
 
 enum debugproto {
-    PROTO_JTAG, PROTO_DW, PROTO_PDI,
+    PROTO_JTAG, PROTO_DW, PROTO_PDI, PROTO_UPDI
 };
 
 class jtag
@@ -837,7 +848,7 @@ class jtag
   // Basic JTAG I/O
   // -------------
 
-  /** Send initial configuration to setup the JTAG box itself. 
+  /** Send initial configuration to setup the JTAG box itself.
    **/
   virtual void initJtagBox(void) = 0;
 

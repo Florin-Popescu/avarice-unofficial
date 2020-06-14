@@ -227,6 +227,8 @@ static void usage(const char *progname)
     fprintf(stderr,
             "  -R, --reset-srst            External reset through nSRST signal.\n");
     fprintf(stderr,
+            "  -u, --updi                  AVR part is an ATxmega device, using UPDI.\n");
+    fprintf(stderr,
 	    "  -V, --version               Print version information.\n");
 #if ENABLE_TARGET_PROGRAMMING
     fprintf(stderr,
@@ -326,6 +328,7 @@ static struct option long_opts[] = {
     { "program",             0,       0,     'p' },
     { "reset-srst",          0,       0,     'R' },
     { "read-fuses",          0,       0,     'r' },
+    { "updi",                0,       0,     'u' },
     { "version",             0,       0,     'V' },
     { "verify",              0,       0,     'v' },
     { "debugwire",           0,       0,     'w' },
@@ -469,6 +472,9 @@ int main(int argc, char **argv)
             case 'r':
                 readFuses = true;
                 break;
+            case 'u':
+		proto = PROTO_UPDI;
+		break;
             case 'V':
                 exit(0);
             case 'v':
@@ -687,7 +693,7 @@ int main(int argc, char **argv)
             if( (program) || (verify))
             {
 #if ENABLE_TARGET_PROGRAMMING
-                fprintf(stderr, 
+                fprintf(stderr,
                    "\nERROR: Filename not specified."
                    " Use the --file option.\n");
                 throw jtag_exception();
