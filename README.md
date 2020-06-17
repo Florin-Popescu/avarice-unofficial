@@ -44,4 +44,4 @@ This is a rough guide since it documents changes already performed. So far new d
 			- the response to the sign on command contains a generic "mega" encoded in ASCII characters, unlike other protocols which provide the device signature here.
 	- in ./src/jtag3rw.cc, function `jtag3::jtagRead` maps an internal address or address space to the actual address space & address which will be requested from the device. For the signature address space, the exact address of the signature row must also be sent. This is fixed at 0 for other JTAGs.
 
-Forked from latest SVN sources at [AVaRICE Project](http://avarice.sourceforge.net/).
+Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
