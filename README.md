@@ -3,8 +3,8 @@ GDB debug server for AVR microcontrollers
 
 ## Changes from official repo
 - Added libusb and libhidapi binaries for easy building under MSYS2. Under Cygwin they can be installed by the package manager.
-- Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO) board.
-- Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160)
+- Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO).
+- Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160).
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
 
 ## Supporting new stuff
