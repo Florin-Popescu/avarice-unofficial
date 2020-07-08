@@ -76,7 +76,7 @@ uchar jtag3::memorySpace(unsigned long &addr)
     case DATA_SPACE_ADDR_OFFSET:
 	return MTYPE_SRAM;
     default:
-	if (is_xmega)
+	if (is_xmega || proto == PROTO_UPDI)
 	    return MTYPE_XMEGA_APP_FLASH;
 	else if (proto == PROTO_DW || programmingEnabled)
 	    return MTYPE_FLASH_PAGE;
