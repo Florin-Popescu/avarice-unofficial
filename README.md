@@ -42,6 +42,8 @@ This is a rough guide since it only documents changes already performed. So far 
 			- setting the ARCH and CONN parameters to the new UPDI values
 			- there is a quirk for UPDI in that the device descriptor must be sent before the sign-on/activate physical command. This is not mandatory for JTAG devices.
 			- the response to the sign on command contains a generic "mega" encoded in ASCII characters, unlike other protocols which provide the device signature here.
-	- in ./src/jtag3rw.cc, function `jtag3::jtagRead` maps an internal address or address space to the actual address space & address which will be requested from the device. For the signature address space, the exact address of the signature row must also be sent. This is fixed at 0 for other JTAGs.
+	- in ./src/jtag3rw.cc
+		- function `jtag3::jtagRead` maps an internal address to actual address space & address which will be requested from the device. For the signature address space, the exact address of the signature row must also be sent. This is fixed at 0 for other JTAGs.
+		- function `jtag3::memorySpace` does the mapping of address to address space and it must be ensured that from both this function and `jtag3::jtagRead` the output is always an address and address space which is known under the protocol. For UPDI, the default address was incorrectly set to SPM (which doesn't exist) instead of Flash.
 
 Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
