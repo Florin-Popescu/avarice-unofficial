@@ -8,7 +8,7 @@ GDB debug server for AVR microcontrollers
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
 
 ## Supporting new stuff
-This is a rough guide since it documents changes already performed. So far new devices and debugger protocols are still fairly compatibile with existing ones, but this will most likely not always be the case. It is not intendend to be an extensive porting guide.
+This is a rough guide since it only documents changes already performed. So far new devices and debugger protocols are still fairly compatibile with existing ones, but this will most likely not always be the case. It is not intendend to be an extensive porting guide.
 
 ### New devices
 1. Run ./scripts/io_gen.py with the device header from the Atmel DFP.
@@ -44,4 +44,4 @@ This is a rough guide since it documents changes already performed. So far new d
 			- the response to the sign on command contains a generic "mega" encoded in ASCII characters, unlike other protocols which provide the device signature here.
 	- in ./src/jtag3rw.cc, function `jtag3::jtagRead` maps an internal address or address space to the actual address space & address which will be requested from the device. For the signature address space, the exact address of the signature row must also be sent. This is fixed at 0 for other JTAGs.
 
-Forked from latest SVN sources at [AVaRICE Project](http://avarice.sourceforge.net/).
+Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
