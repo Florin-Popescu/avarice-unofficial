@@ -201,7 +201,7 @@ int jtag::safewrite(const void *b, int count)
       actual += n;
       buffer += n;
     }
-  fcntl(jtagBox, F_SETFL, flags); 
+  fcntl(jtagBox, F_SETFL, flags);
   return actual;
 }
 
@@ -1010,4 +1010,3 @@ bool jtag::layoutBreakpoints(void)
 
     return hadroom;
 }
-

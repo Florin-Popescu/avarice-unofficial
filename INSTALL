@@ -1,5 +1,4 @@
 To build avarice: in this directory
-sh Bootstrap
 ./configure
 make
 

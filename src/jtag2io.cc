@@ -19,7 +19,7 @@
  *
  * This file implements the basic IO handling for the mkII protocol.
  *
- * $Id: jtag2io.cc 323 2013-01-07 13:26:06Z joerg_wunsch $
+ * $Id: jtag2io.cc 385 2020-08-31 22:53:49Z joerg_wunsch $
  */
 
 
@@ -694,8 +694,7 @@ void jtag2::deviceAutoConfig(void)
         }
         if (pDevice->name == 0)
         {
-            fprintf(stderr, "No configuration available for device ID: %0x\n",
-                    device_id);
+            unknownDevice(device_id);
             throw jtag_exception();
         }
     }
@@ -712,8 +711,7 @@ void jtag2::deviceAutoConfig(void)
         }
         if (pDevice->name == 0)
         {
-            fprintf(stderr, "No configuration available for device ID: %0x\n",
-                    device_id);
+            unknownDevice(device_id, false);
             throw jtag_exception();
         }
     }

@@ -17,7 +17,7 @@
  *
  * This file implements target execution handling for the JTAGICE3 protocol.
  *
- * $Id: jtag3run.cc 338 2013-01-11 16:53:17Z joerg_wunsch $
+ * $Id: jtag3run.cc 382 2020-08-31 22:23:28Z joerg_wunsch $
  */
 
 
@@ -157,7 +157,7 @@ void jtag3::resumeProgram(void)
 void jtag3::expectEvent(bool &breakpoint, bool &gdbInterrupt)
 {
   uchar *evtbuf;
-  int evtsize, i;
+  int evtsize;
   unsigned short seqno;
 
   if (cached_event != NULL)

@@ -17,7 +17,7 @@
  *
  * This file contains miscellaneous routines for the mkII protocol.
  *
- * $Id: jtag2misc.cc 290 2011-12-12 13:24:07Z joerg_wunsch $
+ * $Id: jtag2misc.cc 380 2020-08-31 21:01:26Z joerg_wunsch $
  */
 
 
@@ -56,7 +56,7 @@ void jtag2::setJtagParameter(uchar item, uchar *newValue, int valSize)
     }
     catch (jtag_exception& e)
     {
-        fprintf(stderr, "set paramater command failed: %s\n",
+        fprintf(stderr, "set parameter command failed: %s\n",
                 e.what());
         throw;
     }
@@ -86,12 +86,10 @@ void jtag2::getJtagParameter(uchar item, uchar *&resp, int &respSize)
     }
     catch (jtag_exception& e)
     {
-        fprintf(stderr, "get paramater command failed: %s\n",
+        fprintf(stderr, "get parameter command failed: %s\n",
                 e.what());
         throw;
     }
     if (resp[0] != RSP_PARAMETER || respSize <= 1)
-        throw jtag_exception("unexpected response to get paramater command");
+        throw jtag_exception("unexpected response to get parameter command");
 }
-
-

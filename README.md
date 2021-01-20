@@ -2,11 +2,11 @@
 GDB debug server for AVR microcontrollers
 
 ## Changes from official repo
-- Added libusb and libhidapi binaries for easy building under MSYS2. Under Cygwin they can be installed by the package manager.
 - Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO).
 - Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160).
 - Added support for ATxmega16a4u. Thanks to [@giuliof](https://github.com/giuliof) for this.
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
+- Updated device descriptor generator to Python3 syntax
 
 ## Supporting new stuff
 This is a rough guide since it only documents changes already performed. So far new devices and debugger protocols are still fairly compatibile with existing ones, but this will most likely not always be the case. It is not intendend to be an extensive porting guide.

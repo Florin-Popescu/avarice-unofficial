@@ -19,7 +19,7 @@
  *
  * This file contains functions for interfacing with the GDB remote protocol.
  *
- * $Id: jtag.h 358 2016-02-29 22:21:58Z joerg_wunsch $
+ * $Id: jtag.h 378 2020-08-30 22:04:07Z joerg_wunsch $
  */
 
 #ifndef JTAG_H
@@ -1078,6 +1078,6 @@ class jtag_io_exception: public jtag_exception
 };
 
 
-extern struct jtag *theJtagICE;
+extern class jtag *theJtagICE;
 
 #endif

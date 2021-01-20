@@ -68,7 +68,7 @@ for name, addr_str in re_mem8.findall (f):
     addr = int (addr_str, 0)
     register[addr] = name
 
-# print(the field initializer to stdout.)
+# Print the field initializer to stdout.
 
 addrs = sorted(register)
 print('gdb_io_reg_def_type [PUT DEVICE NAME HERE]_io_registers[] =')

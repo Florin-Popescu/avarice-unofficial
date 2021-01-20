@@ -21,7 +21,7 @@
  *
  * This file contains the main() & support for avrjtagd.
  *
- * $Id: main.cc 358 2016-02-29 22:21:58Z joerg_wunsch $
+ * $Id: main.cc 383 2020-08-31 22:32:42Z joerg_wunsch $
  */
 
 
@@ -248,8 +248,14 @@ static void usage(const char *progname)
 	    "HOST_NAME defaults to 0.0.0.0 (listen on any interface).\n"
 	    "\":PORT\" is required to put avarice into gdb server mode.\n\n");
     fprintf(stderr,
-	    "e.g. %s --erase --program --file test.bin --jtag /dev/ttyS0 :4242\n\n",
-	    progname);
+            "Example usage:\n");
+    fprintf(stderr,
+            "\t%s --jtag /dev/ttyS0 :4242\n",
+            progname);
+    fprintf(stderr,
+            "\t%s --dragon :4242\n",
+            progname);
+    fprintf(stderr, "\n");
     exit(0);
 }
 

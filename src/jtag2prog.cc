@@ -23,7 +23,7 @@
  * This file implements the target memory programming interface for
  * the mkII protocol.
  *
- * $Id: jtag2prog.cc 365 2016-03-03 22:01:42Z joerg_wunsch $
+ * $Id: jtag2prog.cc 384 2020-08-31 22:38:14Z joerg_wunsch $
  */
 
 
@@ -38,6 +38,7 @@
 #include <math.h>
 
 #if ENABLE_TARGET_PROGRAMMING
+#  include "autoconf.h"
 #  include <bfd.h>
 #endif
 
@@ -47,8 +48,11 @@
 
 #if ENABLE_TARGET_PROGRAMMING
 // The API changed for this in bfd.h. This is a work around.
+#ifndef bfd_get_section_name
+#  define bfd_get_section_name(bfd, ptr) bfd_section_name(ptr)
+#endif
 #ifndef bfd_get_section_size
-#  define bfd_get_section_size bfd_get_section_size_before_reloc
+#  define bfd_get_section_size bfd_section_size
 #endif
 
 static void initImage(BFDimage *image)
@@ -384,6 +388,9 @@ void jtag2::downloadToTarget(const char* filename, bool program, bool verify)
 
     statusOut("\nDownload complete.\n");
 #else  // !ENABLE_TARGET_PROGRAMMING
+    (void)filename;
+    (void)program;
+    (void)verify;
     statusOut("\nDownload not done.\n");
     throw jtag_exception("AVaRICE was not configured for target programming");
 #endif	// ENABLE_TARGET_PROGRAMMING

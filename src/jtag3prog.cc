@@ -18,7 +18,7 @@
  * This file implements the target memory programming interface for
  * the JTAGICE3 protocol.
  *
- * $Id: jtag3prog.cc 365 2016-03-03 22:01:42Z joerg_wunsch $
+ * $Id: jtag3prog.cc 390 2020-09-17 20:34:33Z joerg_wunsch $
  */
 
 
@@ -106,7 +106,9 @@ void jtag3::eraseProgramPage(unsigned long address)
 }
 
 
-void jtag3::downloadToTarget(const char* filename, bool program, bool verify)
+void jtag3::downloadToTarget(const char* filename __attribute__((unused)),
+                             bool program __attribute__((unused)),
+                             bool verify __attribute__((unused)))
 {
     statusOut("\nDownload not done.\n");
     throw jtag_exception("Target programming not implemented for JTAGICE3");
