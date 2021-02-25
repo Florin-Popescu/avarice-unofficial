@@ -5,6 +5,7 @@ GDB debug server for AVR microcontrollers
 - Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO).
 - Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160).
 - Added support for ATxmega16a4u. Thanks to [@giuliof](https://github.com/giuliof) for this.
+- Added support for ATmega3208.
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
 - Updated device descriptor generator to Python3 syntax
 

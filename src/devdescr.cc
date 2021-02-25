@@ -6453,6 +6453,36 @@ jtag_device_def_type deviceDefinitions[] = {
             fill_b2(0x90),      // IO space address of MCU control
         },
     },
+    // DEV_ATMEGA3208
+    {
+        "atmega3208",
+        0x9552,
+        128, 256,       // 32768 bytes flash (page size. # pages)
+        64, 4, // 256 bytes EEPROM
+        0x50,        // First flash address which is not an interrupt vector
+        DEVFL_NONE,
+        atmega3208_io_registers,
+        false,
+        0x5E7, 0, // fuses
+	0, // osccal
+	0, // OCD revision
+        {
+            0   // no mkI support
+        },
+        {
+            0   // no mkII JTAG support
+        },
+        {
+            0   // no Xmega support
+        },
+        {
+            fill_b2(0x4000),	// Start address of Program memory
+			128,		        // Page size of flash in bytes
+			64,					// Page size of EEPROM
+			fill_b2(0x1000),	// Address of NVMCTRL module
+			fill_b2(0x0F80),	// Address of OCD module
+        },
+    },
     // DEV_ATMEGA4808
     {
         "atmega4808",
