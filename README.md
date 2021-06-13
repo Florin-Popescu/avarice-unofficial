@@ -18,7 +18,7 @@ This is a rough guide since it only documents changes already performed. So far 
 2. Put the script output in ./src/ioreg.cc and the variable name in ./src/ioreg.h.
 3. Add the device in ./src/devdescr.cc and fill with info based on datasheet and .atdf file in Atmel DFP.
 4. Other changes might be needed. Example for ATmega4808:
-	- The new megaAVR0 or AVR8x family can have more than 8 fuses, but AVaRICE only supported up to 8. Some functions
+	- The new megaAVR0 or AVR8x family can have more than 8 fuses, but AVaRICE only supported up to 8. Some functions may require updating to support this.
 
 ### New debugger protocols
 [Microchip EDBG-based Tools Protocols](http://ww1.microchip.com/downloads/en/DeviceDoc/50002630A.pdf) is a great source of info on this. Hopefully it will be updated if newer protocols emerge.
