@@ -2,10 +2,11 @@
 GDB debug server for AVR microcontrollers
 
 ## Changes from official repo
-- Added support for ATmega324PB. Tested on [ATmega324PB Xplained Pro Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMEGA324PB-XPRO).
-- Added support for ATmega4808. Tested on [AVR-IoT WG Development Board](https://www.microchip.com/DevelopmentTools/ProductDetails/AC164160).
-- Added support for ATxmega16a4u. Thanks to [@giuliof](https://github.com/giuliof) for this.
-- Added support for ATmega3208.
+- Added support for following devices:
+    - ATmega324PB
+	- ATmega3208, ATmega4808
+	- ATmega16a4u
+	- ATtiny814
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
 - Updated device descriptor generator to Python3 syntax
 
@@ -49,3 +50,5 @@ This is a rough guide since it only documents changes already performed. So far 
 		- function `jtag3::memorySpace` does the mapping of address to address space and it must be ensured that from both this function and `jtag3::jtagRead` the output is always an address and address space which is known under the protocol. For UPDI, the default address was incorrectly set to SPM (which doesn't exist) instead of Flash.
 
 Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
+
+Thanks to [@giuliof](https://github.com/giuliof), [Ferenc](ferenc.alexi@norbit.com), [@TimVosch](https://github.com/TimVosch), for helping extend the list of supported devices.
