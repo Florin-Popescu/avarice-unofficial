@@ -1,6 +1,10 @@
 # AVaRICE
 GDB debug server for AVR microcontrollers
 
+## Changes from florinp's repo
+- Added support for the following devices:
+    - ATmega4809 
+
 ## Changes from official repo
 - Added support for following devices:
     - ATmega324PB
