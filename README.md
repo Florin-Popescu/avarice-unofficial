@@ -1,16 +1,13 @@
 # AVaRICE
 GDB debug server for AVR microcontrollers
 
-## Changes from florinp's repo
-- Added support for the following devices:
-    - ATmega4809 
-
 ## Changes from official repo
 - Added support for following devices:
+    - ATmega4809
     - ATmega324PB
-	- ATmega3208, ATmega4808
-	- ATmega16a4u
-	- ATtiny814
+    - ATmega3208, ATmega4808
+    - ATmega16a4u
+    - ATtiny814
 - Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
 - Updated device descriptor generator to Python3 syntax
 
