@@ -2,7 +2,7 @@ Package: avarice
 Version: 1.0-1
 Section: base
 Priority: optional
-Architecture: amd64
+Architecture: arm64
 Depends: libhidapi-dev, libusb-1.0-0-dev
 Maintainer: Florin Popescu <florinsgpopescu@gmail.com>
 Description: AVaRICE
