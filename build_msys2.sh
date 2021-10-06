@@ -9,7 +9,7 @@ git clone git@github.com:libusb/libusb.git
 cd ./libusb
 ./bootstrap.sh
 ./configure
-make -j $NUMBER_OF_PROCESSORS
+make -j$NUMBER_OF_PROCESSORS
 make install
 cd ..
 
@@ -17,7 +17,7 @@ git clone git@github.com:libusb/hidapi.git
 cd ./hidapi
 ./bootstrap
 ./configure
-make all -j $NUMBER_OF_PROCESSORS
+make all -j$NUMBER_OF_PROCESSORS
 make install
 cd ..
 
@@ -29,5 +29,5 @@ INSTALL_DIR=/c/avr
 ./configure \
 --prefix=$INSTALL_DIR
 
-make all -j $NUMBER_OF_PROCESSORS
+make all -j$NUMBER_OF_PROCESSORS
 make install
