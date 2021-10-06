@@ -3,7 +3,6 @@ GDB debug server for AVR microcontrollers
 
 ## Changes from official repo
 - Added support for following devices:
-    - ATmega4809
     - ATmega324PB
     - ATmega3208, ATmega4808, ATmega4809
     - ATmega16a4u
