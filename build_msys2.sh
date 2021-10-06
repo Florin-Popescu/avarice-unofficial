@@ -17,7 +17,7 @@ make -j $NUMBER_OF_PROCESSORS
 make install
 cd ..
 
-git clone https://github.com/Florin-Popescu/hidapi.git
+git clone git@github.com:libusb/hidapi.git
 cd ./hidapi
 ./bootstrap
 ./configure
