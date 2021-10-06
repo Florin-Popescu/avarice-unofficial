@@ -52,4 +52,4 @@ This is a rough guide since it only documents changes already performed. So far 
 
 Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
 
-Thanks to [@giuliof](https://github.com/giuliof), [Ferenc](ferenc.alexi@norbit.com), [@TimVosch](https://github.com/TimVosch), for helping extend the list of supported devices.
+Thanks to all the contributors for helping extend the list of supported devices!
