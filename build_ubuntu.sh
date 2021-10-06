@@ -4,4 +4,4 @@
 ./configure
 
 make all -j$(nproc)
-make install
+sudo make install
