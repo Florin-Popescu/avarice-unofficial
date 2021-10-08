@@ -8469,7 +8469,6 @@ gdb_io_reg_def_type atmega3208_io_registers[] =
     { "USERROW_USERROW61", 0x133D, 0x00 },
     { "USERROW_USERROW62", 0x133E, 0x00 },
     { "USERROW_USERROW63", 0x133F, 0x00 },
-    /* May need to add SREG, SPL, SPH, and eeprom registers. */
     { 0, 0, 0}
 };
 
@@ -10624,7 +10623,6 @@ gdb_io_reg_def_type atxmega16a4u_io_registers[] =
     { "USARTE0_CTRLC", 0xAA5, 0x00 },
     { "USARTE0_BAUDCTRLA", 0xAA6, 0x00 },
     { "USARTE0_BAUDCTRLB", 0xAA7, 0x00 },
-    /* May need to add SREG, SPL, SPH, and eeprom registers. */
     { 0, 0, 0}
 };
 
@@ -11170,6 +11168,5 @@ gdb_io_reg_def_type atmega4809_io_registers[] =
     { "USERROW_USERROW61", 0x133D, 0x00 },
     { "USERROW_USERROW62", 0x133E, 0x00 },
     { "USERROW_USERROW63", 0x133F, 0x00 },
-    /* May need to add SREG, SPL, SPH, and eeprom registers. */
     { 0, 0, 0}
 };
