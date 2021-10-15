@@ -304,7 +304,7 @@ int jtag2::recv(uchar *&msg)
 	    // How to process it?  Register event handlers
 	    // for interesting events?
 	    // For now, the only place that cares is jtagContinue
-	    // and it just calls recvFrame and handles events directly. 
+	    // and it just calls recvFrame and handles events directly.
 	} else {
 	    debugOut("\ngot wrong sequence number, %u != %u\n",
 		     r_seqno, command_sequence);
@@ -366,7 +366,6 @@ bool jtag2::sendJtagCommand(uchar *command, int commandSize, int &tries,
 void jtag2::doJtagCommand(uchar *command, int  commandSize,
 			  uchar *&response, int  &responseSize,
 			  bool retryOnTimeout)
-    throw (jtag_exception)
 {
     int sizeseen = 0;
     uchar code = 0;
