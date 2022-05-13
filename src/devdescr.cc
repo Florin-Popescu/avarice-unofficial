@@ -3075,6 +3075,66 @@ jtag_device_def_type deviceDefinitions[] = {
 	},
 	{ 0 },			// Xmega device descr.
 	},
+	// DEV_ATTINY402
+	{
+		"attiny402",
+		0x9227,
+		64, 64,	// flash
+		32, 4,	// EEPROM
+		31 * 2,	// interrupt vectors
+		DEVFL_NONE,
+		attiny402_io_registers,
+		false,
+		0x5E7, 0, // fuses
+		0, // osccal
+		0, // OCD revision
+		{
+			0	// no mkI support
+		},
+		{
+			0   // no mkII JTAG support
+		},
+		{
+			0   // no Xmega support
+		},
+		{
+			fill_b2(0x8000),	// Start address of Program memory
+			64,					// Page size of flash in bytes
+			32,					// Page size of EEPROM
+			fill_b2(0x1000),	// Address of NVMCTRL module
+			fill_b2(0x0F80),	// Address of OCD module
+		},
+	},
+	// DEV_ATTINY412
+	{
+		"attiny412",
+		0x9223,
+		64, 64,	// flash
+		32, 4,	// EEPROM
+		26 * 2,	// interrupt vectors
+		DEVFL_NONE,
+		attiny412_io_registers,
+		false,
+		0x5F7, 0, // fuses
+		0, // osccal
+		0, // OCD revision
+		{
+			0	// no mkI support
+		},
+		{
+			0   // no mkII JTAG support
+		},
+		{
+			0   // no Xmega support
+		},
+		{
+			fill_b2(0x8000),	// Start address of Program memory
+			64,					// Page size of flash in bytes
+			32,					// Page size of EEPROM
+			fill_b2(0x1000),	// Address of NVMCTRL module
+			fill_b2(0x0F80),	// Address of OCD module
+		},
+	},
 	// DEV_ATTINY461
 	{
 	"attiny461",
@@ -3143,9 +3203,9 @@ jtag_device_def_type deviceDefinitions[] = {
 	{
 		"attiny814",
 		0x9322,
-		64, 128,	// 8192 bytes flash
-		32, 4,	// 512 bytes EEPROM
-		26 * 2,	// 19 interrupt vectors
+		64, 128,	// flash
+		32, 4,	// EEPROM
+		26 * 2,	// interrupt vectors
 		DEVFL_NONE,
 		attiny814_io_registers,
 		false,

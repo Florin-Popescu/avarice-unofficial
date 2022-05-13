@@ -73,6 +73,8 @@ extern gdb_io_reg_def_type attiny25_io_registers[];
 extern gdb_io_reg_def_type attiny45_io_registers[];
 extern gdb_io_reg_def_type attiny85_io_registers[];
 extern gdb_io_reg_def_type attiny261_io_registers[];
+extern gdb_io_reg_def_type attiny402_io_registers[];
+extern gdb_io_reg_def_type attiny412_io_registers[];
 extern gdb_io_reg_def_type attiny461_io_registers[];
 extern gdb_io_reg_def_type attiny814_io_registers[];
 extern gdb_io_reg_def_type attiny861_io_registers[];
