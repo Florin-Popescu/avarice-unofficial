@@ -35,4 +35,3 @@ esac
 ./configure
 
 make all -j$NUMBER_OF_PROCESSORS
-$SUDO make install
