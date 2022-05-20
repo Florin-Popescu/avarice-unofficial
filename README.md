@@ -7,7 +7,10 @@ GDB debug server for AVR microcontrollers
     - ATmega3208, ATmega4808, ATmega4809
     - ATmega16a4u
     - ATtiny402, ATtiny412, ATtiny814
-- Added support for UPDI. This is basically one-wire PDI with a few changes to the initialization sequence, but needs a separate device descriptor type.
+- Added support for UPDI. This is very similar to PDI but:
+	- communication is done over one bidirectional wire
+	- initialization sequence is different, needs a separate device descriptor type
+	- different access requirements for some memory regions (e.g. flash cannot be read byte by byte)
 - Updated device descriptor generator to Python3 syntax
 
 ## Supporting new stuff
@@ -47,7 +50,9 @@ This is a rough guide since it only documents changes already performed. So far 
 			- the response to the sign on command contains a generic "mega" encoded in ASCII characters, unlike other protocols which provide the device signature here.
 	- in ./src/jtag3rw.cc
 		- function `jtag3::jtagRead` maps an internal address to actual address space & address which will be requested from the device. For the signature address space, the exact address of the signature row must also be sent. This is fixed at 0 for other JTAGs.
-		- function `jtag3::memorySpace` does the mapping of address to address space and it must be ensured that from both this function and `jtag3::jtagRead` the output is always an address and address space which is known under the protocol. For UPDI, the default address was incorrectly set to SPM (which doesn't exist) instead of Flash.
+		- function `jtag3::memorySpace` does the mapping of address to address space and it must be ensured that from both this function and `jtag3::jtagRead` the output is always an address and address space which matches the requirements of the protocol. For UPDI:
+			- the default address was incorrectly set to SPM (which doesn't exist) instead of Flash.
+			- accessing flash must be aligned to instruction words (16 bits), but GDB may not request aligned locations.
 
 Forked from latest sources at [AVaRICE Project](http://avarice.sourceforge.net/).
 
