@@ -12,6 +12,7 @@
 			"args": [
 				"--edbg",
 				"--updi",
+				"-d",
 				":4242"
 			],
 			"stopAtEntry": false,
