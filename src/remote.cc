@@ -168,7 +168,7 @@ int checkForDebugChar(void)
     }
 
     return (int)c;
-}    
+}
 
 static const unsigned char hexchars[] = "0123456789abcdef";
 
@@ -441,7 +441,7 @@ static bool singleStep()
     if (theJtagICE->codeBreakpointAt(newPC))
 	return true;
     // assume interrupt when PC goes into interrupt table
-    if (ignoreInterrupts && newPC < theJtagICE->deviceDef->vectors_end) 
+    if (ignoreInterrupts && newPC < theJtagICE->deviceDef->vectors_end)
 	return handleInterrupt();
 
     return true;
@@ -865,7 +865,7 @@ void talkToGdb(void)
 
         // Read in SPL SPH SREG
         jtagBuffer = theJtagICE->jtagRead(theJtagICE->statusAreaAddress(), 0x03);
-     
+
         if (jtagBuffer)
         {
             // We have SPL SPH SREG and need SREG SPL SPH
@@ -940,7 +940,7 @@ void talkToGdb(void)
                 {
                     // Request for a sequence of io registers
                     int offset;
-                    i = 0; 
+                    i = 0;
                     j = 0;
                     int count;
                     unsigned int addr;
@@ -982,7 +982,7 @@ void talkToGdb(void)
 
                             for (count = 0; count < j; count++)
                             {
-                                if ((io_reg_defs[i+count].name == 0x00) 
+                                if ((io_reg_defs[i+count].name == 0x00)
                                     || (io_reg_defs[i+count].flags != 0x00)
                                     || (io_reg_defs[i+count].reg_addr != addr))
                                 {
@@ -990,14 +990,14 @@ void talkToGdb(void)
                                 }
                                 addr++;
                             }
-								
+
                             if (count)
                             {
                                 // Read consecutive address io_registers
                                 jtagBuffer = theJtagICE->jtagRead(DATA_SPACE_ADDR_OFFSET +
                                                       io_reg_defs[i].reg_addr,
                                                       count);
-								
+
                                 if (jtagBuffer)
                                 {
                                     int k = 0;
@@ -1024,7 +1024,7 @@ void talkToGdb(void)
         }
 	else if (strncmp(ptr, "Supported:", 10) == 0)
 	{
-	    strcpy(remcomOutBuffer, "qXfer:memory-map:read+");
+	    strcpy(remcomOutBuffer, "PacketSize=40;qXfer:memory-map:read+");
 	}
 	else if (strncmp(ptr, "Xfer:memory-map:read::", 22) == 0)
 	{
@@ -1313,5 +1313,3 @@ void talkToGdb(void)
 	putpacket(remcomOutBuffer);
     }
 }
-
-
