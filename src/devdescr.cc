@@ -3081,7 +3081,7 @@ jtag_device_def_type deviceDefinitions[] = {
 		0x9227,
 		64, 64,	// flash
 		32, 4,	// EEPROM
-		31 * 2,	// interrupt vectors
+		(31 + 1) * 2,	// First flash address which is not an interrupt vector
 		DEVFL_NONE,
 		attiny402_io_registers,
 		false,
@@ -3111,7 +3111,7 @@ jtag_device_def_type deviceDefinitions[] = {
 		0x9223,
 		64, 64,	// flash
 		32, 4,	// EEPROM
-		26 * 2,	// interrupt vectors
+		(26 + 1) * 2,	// First flash address which is not an interrupt vector
 		DEVFL_NONE,
 		attiny412_io_registers,
 		false,
