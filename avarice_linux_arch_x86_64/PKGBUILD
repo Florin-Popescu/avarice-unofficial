@@ -1,0 +1,51 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <florinsgpopescu@gmail.com>
+pkgname=avarice
+pkgver=2.14
+pkgrel=7
+epoch=
+pkgdesc="GDB debug server for AVR microcontrollers"
+arch=('x86_64')
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+checkdepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=("$pkgname-$pkgver.tar.gz")
+noextract=()
+md5sums=('SKIP')
+validpgpkeys=()
+
+prepare() {
+	cd "$srcdir"
+}
+
+build() {
+	cd "$srcdir"
+	./Bootstrap
+	./configure --prefix=/usr
+	make all
+}
+
+check() {
+	cd "$srcdir"
+	make -k check
+}
+
+package() {
+	cd "$srcdir"
+	make DESTDIR="$pkgdir/" install
+}
