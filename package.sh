@@ -23,4 +23,5 @@ elif [ $DISTRO == arch ]; then
 	tar --create --gzip --file="$PACKAGE"/"$TOOL"-"$UPSTREAM_VERSION".tar.gz .
 	cd $PACKAGE
 	makepkg
+	cp *.zst ../$PACKAGE.pkg.tar.zst
 fi
