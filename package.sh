@@ -14,9 +14,8 @@ fi
 PACKAGE="$TOOL"_"$OS"_"$DISTRO"_"$ARCH"
 DESTDIR=./"$PACKAGE"
 
-
 if [ $DISTRO == deb ]; then
-mkdir $DESTDIR
+	mkdir $DESTDIR
 	make install
 	dpkg-deb --build --root-owner-group $PACKAGE
 elif [ $DISTRO == arch ]; then
