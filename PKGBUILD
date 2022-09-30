@@ -18,28 +18,18 @@ backup=()
 options=()
 install=
 changelog=
-source=("$pkgname-$pkgver.tar.gz")
+source=()
 noextract=()
-md5sums=('SKIP')
+md5sums=()
 validpgpkeys=()
 
-prepare() {
-	cd "$srcdir"
-}
-
 build() {
-	cd "$srcdir"
+	cd ..
 	./Bootstrap
 	./configure --prefix=/usr
 	make all
 }
 
-check() {
-	cd "$srcdir"
-	make -k check
-}
-
 package() {
-	cd "$srcdir"
 	make DESTDIR="$pkgdir/" install
 }
