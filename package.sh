@@ -2,7 +2,6 @@
 
 TOOL=avarice
 ARCH=$(uname -m)
-OS=$(uname -o | cut -d '/' -f2 | tr '[:upper:]' '[:lower:]')
 
 if [ -x "$(command -v dpkg-deb)" ]; then
 	DISTRO=deb
@@ -10,7 +9,7 @@ elif [ -x "$(command -v makepkg)" ]; then
 	DISTRO=arch
 fi
 
-PACKAGE="$TOOL"_"$OS"_"$ARCH"
+PACKAGE="$TOOL"_"$ARCH"
 DESTDIR=./"$PACKAGE"
 
 if [ $DISTRO == deb ]; then
