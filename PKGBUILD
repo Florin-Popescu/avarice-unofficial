@@ -23,13 +23,6 @@ noextract=()
 md5sums=()
 validpgpkeys=()
 
-build() {
-	cd ..
-	./Bootstrap
-	./configure --prefix=/usr
-	make all
-}
-
 package() {
 	make DESTDIR="$pkgdir/" install
 }
