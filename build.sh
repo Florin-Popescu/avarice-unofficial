@@ -1,4 +1,3 @@
-  GNU nano 7.1                                                                              build.sh
 #!/bin/bash
 
 case $(uname -o | cut -d '/' -f2) in
