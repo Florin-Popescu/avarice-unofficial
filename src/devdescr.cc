@@ -3229,6 +3229,36 @@ jtag_device_def_type deviceDefinitions[] = {
 			fill_b2(0x0F80),	// Address of OCD module
 		},
 	},
+	// DEV_ATTINY3217
+	{
+		"attiny3217",
+		0x9522,
+		128, 256,	// flash
+		64, 4,	// EEPROM
+		31 * 4,	// interrupt vectors
+		DEVFL_NONE,
+		attiny3217_io_registers,
+		false,
+		0x5F7, 0, // fuses
+		0, // osccal
+		0, // OCD revision
+		{
+			0	// no mkI support
+		},
+		{
+			0   // no mkII JTAG support
+		},
+		{
+			0   // no Xmega support
+		},
+		{
+			fill_b2(0x8000),	// Start address of Program memory
+			128,					// Page size of flash in bytes
+			64,					// Page size of EEPROM
+			fill_b2(0x1000),	// Address of NVMCTRL module
+			fill_b2(0x0F80),	// Address of OCD module
+		},
+	},
 	// DEV_ATTINY861
 	{
 	"attiny861",
