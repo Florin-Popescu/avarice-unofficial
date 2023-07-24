@@ -197,6 +197,7 @@ struct updi_device_desc {
     unsigned char eeprom_page_size;
     unsigned char nvm_base_addr[2];
     unsigned char ocd_base_addr[2];
+    unsigned char unk[39];
 };
 
 #define fill_b4(u) \
