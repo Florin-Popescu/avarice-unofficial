@@ -798,6 +798,8 @@ class jtag
   // Target device is an ATxmega one
   bool is_xmega;
 
+  enum debugproto proto;
+
   public:
   // Whether we are in "programming mode" (changes how program memory
   // is written, apparently)

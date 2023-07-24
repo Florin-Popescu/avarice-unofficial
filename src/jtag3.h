@@ -185,7 +185,6 @@ class jtag3: public jtag
     unsigned short command_sequence;
     bool signedIn;
     bool debug_active;
-    enum debugproto proto;
     unsigned long cached_pc;
     bool cached_pc_is_valid;
     bool is_edbg;
