@@ -699,6 +699,7 @@ void talkToGdb(void)
     static char last_cmd = 0;
     static unsigned char *flashbuf;
     static int maxaddr;
+    bool bpok = false;
 
     ptr = getpacket(plen);
 
@@ -1247,7 +1248,6 @@ void talkToGdb(void)
     case 'Z':
 	adding = true;
     case 'z':
-	error(1); // assume the worst.
 
 	// Add a Breakpoint. note: length specifier is ignored for now.
 	if (hexToInt(&ptr, &i) && *ptr++ == ',' &&
@@ -1280,25 +1280,31 @@ void talkToGdb(void)
 	    {
 		try
                 {
-                    theJtagICE->addBreakpoint(addr, mode, length);
+                    bpok = theJtagICE->addBreakpoint(addr, mode, length);
                 }
                 catch (jtag_exception&)
                 {
                     break;
                 }
+                if (bpok) ok();
+                // if not ok, we default to empty aka not supported instead of
+                // error
 	    }
 	    else
 	    {
 		try
                 {
-                    theJtagICE->deleteBreakpoint(addr, mode, length);
+                    bpok = theJtagICE->deleteBreakpoint(addr, mode, length);
                 }
                 catch (jtag_exception&)
                 {
                     break;
                 }
+                if (bpok) ok();
+                else error(1);
 	    }
-            ok();
+	} else {
+		error(1);
 	}
 	break;
 

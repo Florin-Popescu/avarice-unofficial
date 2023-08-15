@@ -185,7 +185,6 @@ class jtag3: public jtag
     unsigned short command_sequence;
     bool signedIn;
     bool debug_active;
-    enum debugproto proto;
     unsigned long cached_pc;
     bool cached_pc_is_valid;
     bool is_edbg;
@@ -250,10 +249,10 @@ class jtag3: public jtag
     virtual uchar *jtagRead(unsigned long addr, unsigned int numBytes);
     virtual void jtagWrite(unsigned long addr, unsigned int numBytes, uchar buffer[]);
     virtual unsigned int statusAreaAddress(void) const {
-        return (is_xmega? 0x3D: 0x5D) + DATA_SPACE_ADDR_OFFSET;
+        return ((is_xmega || proto == PROTO_UPDI)? 0x3D: 0x5D) + DATA_SPACE_ADDR_OFFSET;
     };
     virtual unsigned int cpuRegisterAreaAddress(void) const {
-        return is_xmega? REGISTER_SPACE_ADDR_OFFSET: DATA_SPACE_ADDR_OFFSET;
+        return (is_xmega || proto == PROTO_UPDI) ? REGISTER_SPACE_ADDR_OFFSET: DATA_SPACE_ADDR_OFFSET;
     }
 
   private:

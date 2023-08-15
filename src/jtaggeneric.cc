@@ -895,6 +895,11 @@ bool jtag::layoutBreakpoints(void)
 	  // Xmega has only two hardware slots?
 	  remaining_bps[BREAKPOINT2_XMEGA_UNAVAIL] = false;
       }
+      else if (proto == PROTO_UPDI)
+      {
+	 remaining_bps[2] = false;
+	 remaining_bps[3] = false;
+      }
 
     bp_i = 0;
     while (!bp[bp_i].last)

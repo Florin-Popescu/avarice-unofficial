@@ -81,6 +81,10 @@ bool jtag1::addBreakpoint(unsigned int address, bpType type, unsigned int length
     }
     else // data breakpoint
     {
+    	// No Data BPs for UPDI
+	if (proto == PROTO_UPDI)
+	    return false;
+
 	if (numBreakpointsData == MAX_BREAKPOINTS_DATA)
 	{
 	    debugOut("FAILED\n");
