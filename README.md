@@ -6,7 +6,7 @@ GDB debug server for AVR microcontrollers
     - ATmega324PB
     - ATmega3208, ATmega4808, ATmega4809
     - ATmega16a4u
-    - ATtiny402, ATtiny412, ATtiny814
+    - ATtiny402, ATtiny412, ATtiny814, ATtiny3217
 - Added support for UPDI. This is very similar to PDI but:
 	- communication is done over one bidirectional wire
 	- initialization sequence is different, needs a separate device descriptor type

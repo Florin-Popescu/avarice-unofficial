@@ -77,6 +77,7 @@ extern gdb_io_reg_def_type attiny402_io_registers[];
 extern gdb_io_reg_def_type attiny412_io_registers[];
 extern gdb_io_reg_def_type attiny461_io_registers[];
 extern gdb_io_reg_def_type attiny814_io_registers[];
+extern gdb_io_reg_def_type attiny3217_io_registers[];
 extern gdb_io_reg_def_type attiny861_io_registers[];
 extern gdb_io_reg_def_type atmega32c1_io_registers[];
 extern gdb_io_reg_def_type atmega32m1_io_registers[];
