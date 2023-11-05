@@ -1,5 +1,5 @@
 # Repo moved!
-Repository has moved to allow easier tracking of upstream changes. Please see https://github.com/Florin-Popescu/avarice and submit future PRs there, or better yet to upstream https://github.com/avrdudes/avarice. This repository will be deleted after some time.
+Repository has moved to allow easier tracking of upstream changes. Please see [my new repo](https://github.com/Florin-Popescu/avarice) and submit future PRs there, or better yet to [upstream](https://github.com/avrdudes/avarice). This repository will be deleted after some time.
 Thank you to everyone who has collaborated on this!
 
 # AVaRICE
